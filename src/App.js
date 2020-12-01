@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Favorites from "./conteiners/Favorites/Favorites";
+import Table from "./conteiners/Table/Table";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Favorites />
+      <span className="all-coins">all coins</span>
+      <Table />
+      <span className="select-coin">
+        Select a coin to view more information
+      </span>
     </div>
   );
-}
+};
 
 export default App;

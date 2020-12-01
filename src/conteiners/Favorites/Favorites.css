@@ -1,0 +1,42 @@
+.fav-div {
+  position: absolute;
+  margin: 0 auto;
+  width: 1024px;
+  height: 338px;
+  background: #4a90e2;
+}
+h1 {
+  position: absolute;
+  width: 213px;
+  height: 37px;
+  left: 188px;
+  top: 109px;
+  /* font-family: Gibson; */
+  font-style: normal;
+  font-weight: 600;
+  font-size: 29px;
+  line-height: 127.34%;
+  /* identical to box height, or 37px */
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  /* white */
+  color: #ffffff;
+}
+.no-fav {
+  position: absolute;
+  width: 158px;
+  height: 17px;
+  left: 188px;
+  top: 195px;
+
+  /* font-family: Open Sans; */
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 132%;
+  /* or 17px */
+
+  /* white */
+
+  color: #ffffff;
+}

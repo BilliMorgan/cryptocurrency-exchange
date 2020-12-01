@@ -1,0 +1,41 @@
+.table {
+  position: absolute;
+  height: 300px;
+  left: 188px;
+  right: 188px;
+  top: 443px;
+  /* #fff */
+  background: #ffffff;
+  /* mercury */
+  border: 1px solid #e2e2e2;
+  box-sizing: border-box;
+}
+
+.title-row {
+  position: relative;
+  margin-top: 33px;
+  margin-left: 43px;
+  margin-right: 45px;
+  padding-bottom: 17px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+
+  text-transform: uppercase;
+  /* border-bottom: 1px solid #e2e2e2; */
+}
+
+.name {
+  margin-right: 122px;
+}
+
+.total {
+  margin-right: 81px;
+}
+.market-cap {
+  margin-right: 39px;
+}
+
+/* .current-price {
+} */
