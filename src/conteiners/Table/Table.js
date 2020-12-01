@@ -34,9 +34,7 @@ const Table = (props) => {
         <span className="market-cap">market cap</span>
         <span className="current-price">current price</span>
       </div>
-      {currencyList.map((cur) => (
-        <Currency key={cur.id}>{cur}</Currency>
-      ))}
+        <Currency currency={currencyList}/>
     </div>
   );
 };

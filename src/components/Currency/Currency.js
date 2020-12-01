@@ -5,13 +5,17 @@ import "./Currency.css";
 const Currency = (props)=> {
   // console.log(props)
   return (
-    <div className="currency">
-      <span className="name-cur">{props.children.name}</span>
-      <span className="total-cur">{props.children.totalSupply}</span>
-      <span className="market-cap-cur">{props.children.marketCap}</span>
-      <span className="current-price-cur">${props.children.currentPrice}</span>
+    <>
+    {props.currency.map(cur =>(
+    <div className="currency" key={cur.id}>
+      <span className="name-cur">{cur.name}</span>
+      <span className="total-cur">{cur.totalSupply}</span>
+      <span className="market-cap-cur">{cur.marketCap}</span>
+      <span className="current-price-cur">${cur.currentPrice}</span>
       <div className="row-cur"></div>
     </div>
+    ))}
+    </>
   );
 } 
 
