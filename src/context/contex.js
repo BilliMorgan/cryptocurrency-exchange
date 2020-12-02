@@ -6,9 +6,8 @@ export const Context = React.createContext({
   displayCurrency: [],
   coinName: "",
   setCoinName: "",
-
-  
-
+  favorite: "",
+  setFavorite: ""
 });
 
 const ContextProvider = (props) => {
@@ -19,9 +18,15 @@ const ContextProvider = (props) => {
   };
 
   const [currencyList, setCurrencyList] = useState([]);
-  const [coinId, setCoinId] = useState("")
+  const [coinId, setCoinId] = useState("");
+  const [favorite, setFavorite] = useState(localStorage.getItem("coin") || "")
 
-  // console.log(coinId)
+
+
+  useEffect(() => {
+    localStorage.setItem("coin", favorite)
+  }, [favorite])
+
 
   useEffect(() => {
     fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad")
@@ -31,7 +36,6 @@ const ContextProvider = (props) => {
         console.log(currencies);
         const currencyArray = [];
         for (const currency of currencies) {
-          // console.log(currency)
           currencyArray.push({
             id: currency.id,
             name: currency.name,
@@ -42,7 +46,7 @@ const ContextProvider = (props) => {
             lowTwentyFour: currency.low_24h,
             highTwentyFour: currency.high_24h,
             circulatingSupply: currency.circulating_supply,
-            marketCapRank: currency.market_cap_rank
+            marketCapRank: currency.market_cap_rank,
           });
         }
         setCurrencyList(currencyArray);
@@ -57,6 +61,8 @@ const ContextProvider = (props) => {
         displayCurrency: currencyList,
         coinName: coinId,
         setCoinName: setCoinId,
+        favorite: favorite,
+        setFavorite: setFavorite
       }}
     >
       {props.children}
