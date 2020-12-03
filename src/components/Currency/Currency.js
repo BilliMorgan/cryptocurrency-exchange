@@ -6,7 +6,7 @@ const Currency = (props) => {
   const context = useContext(Context);
 
   const coinHandler = (id) => {
-    context.setCoinName(id)
+    context.setCoinName(id);
     context.onShowCoinSection();
   };
 

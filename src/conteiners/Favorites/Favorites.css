@@ -5,7 +5,7 @@
   height: 338px;
   background: #4a90e2;
 }
-h1 {
+.favorite-coins {
   position: absolute;
   width: 213px;
   height: 37px;
@@ -28,15 +28,16 @@ h1 {
   height: 17px;
   left: 188px;
   top: 195px;
-
   /* font-family: Open Sans; */
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
   line-height: 132%;
   /* or 17px */
-
   /* white */
-
   color: #ffffff;
+}
+.favorite-but{
+  margin-left: 189px;
+  margin-top: 178px;
 }

@@ -1,0 +1,33 @@
+.fav-button {
+  width: 152px;
+  height: 67px;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  background: #4a90e2;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 127.34%;
+  /* identical to box height, or 17px */
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-right: 14px;
+}
+.rem-button {
+  width: 152px;
+  height: 67px;
+  border: none;
+  background: #397bca;
+  margin-right: 14px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 127.34%;
+  /* identical to box height, or 17px */
+
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}

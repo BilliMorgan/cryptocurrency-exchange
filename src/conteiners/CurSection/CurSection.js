@@ -3,21 +3,20 @@ import "./CurSection.css";
 import { Context } from "../../context/contex";
 import { ReactComponent as Bitcoin } from "../../assets/Bitcoin.svg";
 import { ReactComponent as Plus } from "../../assets/plus-o-thick.svg";
-// import {} from "../../assets"
 
 const CurSection = () => {
   const context = useContext(Context);
+
   const currencyArray = context.displayCurrency;
   const coin = context.coinName;
   const displayCoin = currencyArray.filter((c) => c.id === coin);
-  const coinProperties = displayCoin[0]
+  const coinProperties = displayCoin[0];
 
-
-
-
-  const addFavoriteHandler = (name) => {
-    //const contextFavorite = context.Favorite;
-    context.setFavorite(prevFav => [...prevFav, name])
+  const addFavoriteHandler = (id) => {
+    console.log(context.favorite);
+    if (!context.favorite.includes(id)) {
+      context.setFavorite((prevFav) => [...prevFav, id]);
+    }
   };
 
   return (
@@ -73,7 +72,7 @@ const CurSection = () => {
 
         <div
           className="add-fav"
-          onClick={(name) => addFavoriteHandler(coinProperties.name)}
+          onClick={(id) => addFavoriteHandler(coinProperties.id)}
         >
           <Plus className="ico-plus" />
           Add to favourites
