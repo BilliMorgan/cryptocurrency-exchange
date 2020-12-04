@@ -1,0 +1,126 @@
+.coin-trade {
+  position: relative;
+  width: 324px;
+  height: 455px;
+  margin-left: 512px;
+  margin-top: 762px;
+  background: #ffffff;
+  border: 1px solid #e2e2e2;
+  box-sizing: border-box;
+}
+
+.buy-sell-buttons {
+  position: relative;
+  margin-left: 30px;
+  margin-top: 51px;
+}
+.active-but {
+  width: 122px;
+  height: 48px;
+  margin-right: 15px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 155.25%;
+  /* identical to box height, or 20px */
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  /* white */
+  color: #ffffff;
+  border: none;
+  background: #4a90e2;
+}
+.not-active-but {
+  width: 122px;
+  height: 48px;
+  margin-right: 15px;
+  border: 1px solid #4a90e2;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 155.25%;
+  /* identical to box height, or 20px */
+  text-align: center;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  /* Hover Blue */
+  color: #397bca;
+  background: #FFFFFF;
+}
+.sell-but:active{
+  color: red
+}
+
+.trade-form {
+  margin-left: 30px;
+  margin-top: 55px;
+}
+/* .drop-coin {
+} */
+.amount {
+  margin-top: 33px;
+}
+.amount-inp {
+  width: 255px;
+  border: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 155.25%;
+  text-transform: capitalize;
+  color: #000000;
+}
+.line {
+  width: 255px;
+  height: 0px;
+  border: 1px solid #e2e2e2;
+  margin-top: 6px;
+}
+.submit {
+  width: 255px;
+  height: 58px;
+  margin-top: 53px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 155.25%;
+  /* identical to box height, or 20px */
+
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  border: none;
+  background: #4a90e2;
+}
+.sub-message {
+  margin-top: 16px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 155.25%;
+  /* identical to box height, or 19px */
+
+  text-transform: capitalize;
+
+  /* Complete */
+
+  color: #00bc7c;
+}
+select {
+  width: 255px;
+  border: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 155.25%;
+  /* or 20px */
+  text-transform: capitalize;
+  color: #000000;
+}
+
+.cur-cap{
+   text-transform: uppercase;
+}

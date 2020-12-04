@@ -3,17 +3,16 @@ import "./CurSection.css";
 import { Context } from "../../context/contex";
 import { ReactComponent as Bitcoin } from "../../assets/Bitcoin.svg";
 import { ReactComponent as Plus } from "../../assets/plus-o-thick.svg";
+import Trade from "../Trade/Trade";
 
 const CurSection = () => {
   const context = useContext(Context);
 
   const currencyArray = context.displayCurrency;
   const coin = context.coinName;
-  const displayCoin = currencyArray.filter((c) => c.id === coin);
-  const coinProperties = displayCoin[0];
+  const coinProperties = currencyArray.filter((c) => c.id === coin)[0];
 
   const addFavoriteHandler = (id) => {
-    console.log(context.favorite);
     if (!context.favorite.includes(id)) {
       context.setFavorite((prevFav) => [...prevFav, id]);
     }
@@ -49,7 +48,9 @@ const CurSection = () => {
           </div>
           <div>
             High 24h:
-            <span className="coin-span-prop"></span>
+            <span className="coin-span-prop">
+              ${coinProperties.highTwentyFour}
+            </span>
           </div>
           <div>
             Circulating Supply:
@@ -69,7 +70,6 @@ const CurSection = () => {
             </span>
           </div>
         </div>
-
         <div
           className="add-fav"
           onClick={(id) => addFavoriteHandler(coinProperties.id)}
@@ -78,9 +78,7 @@ const CurSection = () => {
           Add to favourites
         </div>
       </div>
-      <div className="coin-trade">
-        <button>BUY</button> <button>SELL</button>
-      </div>
+      <Trade />
     </section>
   );
 };

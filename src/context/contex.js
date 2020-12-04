@@ -8,6 +8,7 @@ export const Context = React.createContext({
   setCoinName: "",
   favorite: "",
   setFavorite: "",
+  // coinProperties: []
 });
 
 const ContextProvider = (props) => {
@@ -17,12 +18,17 @@ const ContextProvider = (props) => {
   const [favorite, setFavorite] = useState(
     JSON.parse(localStorage.getItem("favorites")) || []
   );
-
+  // const [coinProperties, setCoinProperties] = useState([])
   const coinSectionHandler = () => {
     setShowCoinSection(true);
   };
 
-  
+  // const currencyArray = displayCurrency;
+  // const coin = coinName;
+  // useEffect(()=>{
+  //   setCoinProperties(currencyList.filter((c) => c.id === coinId)[0]);
+  // },[coinId, currencyList])
+  // console.log(coinProperties)
 
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorite));
@@ -33,7 +39,6 @@ const ContextProvider = (props) => {
       .then((response) => response.json())
       .then((data) => {
         const currencies = data.slice(0, 5);
-        // console.log(currencies);
         const currencyArray = [];
         for (const currency of currencies) {
           currencyArray.push({
@@ -53,6 +58,9 @@ const ContextProvider = (props) => {
       });
   }, [setCurrencyList]);
 
+
+
+
   return (
     <Context.Provider
       value={{
@@ -63,6 +71,7 @@ const ContextProvider = (props) => {
         setCoinName: setCoinId,
         favorite: favorite,
         setFavorite: setFavorite,
+        // coinProperties: coinProperties
       }}
     >
       {props.children}
