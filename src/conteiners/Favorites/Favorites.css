@@ -1,16 +1,16 @@
 .fav-div {
-  position: absolute;
-  margin: 0 auto;
   width: 1024px;
   height: 338px;
   background: #4a90e2;
+  margin-top: 0;
 }
 .favorite-coins {
-  position: absolute;
+  /* position: relative; */
   width: 213px;
   height: 37px;
-  left: 188px;
-  top: 109px;
+  margin-left: 188px;
+  padding-top: 109px;
+  /* margin-top: 109px; */
   /* font-family: Gibson; */
   font-style: normal;
   font-weight: 600;
@@ -19,16 +19,15 @@
   /* identical to box height, or 37px */
   letter-spacing: 0.02em;
   text-transform: capitalize;
-  /* white */
   color: #ffffff;
 }
 .no-fav {
-  position: absolute;
+  position: relative;
   width: 158px;
   height: 17px;
-  left: 188px;
-  top: 195px;
-  /* font-family: Open Sans; */
+  margin-left: 188px;
+  margin-top: 49px;
+  font-family: Open Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -37,7 +36,43 @@
   /* white */
   color: #ffffff;
 }
-.favorite-but{
+.favorite-but {
+  display: inline-block;
+  width: 670px;
   margin-left: 189px;
-  margin-top: 178px;
+  margin-top: 13px;
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+  .fav-div {
+    margin: 0 auto;
+    width: 790px;
+  }
+  .favorite-coins {
+    margin-left: calc(50% - 213px / 2 - 217.5px);
+  }
+  .no-fav {
+    margin-left: calc(50% - 158px / 2 - 245px);
+  }
+  .favorite-but {
+    /* width: 648px; */
+    margin-left: 61px;
+  }
+}
+
+@media (max-width: 375px) {
+  .fav-div {
+    width: 392px;
+  }
+  .favorite-coins {
+    margin-left: 32px;
+  }
+  .no-fav {
+    margin-left: 32px;
+  }
+  .favorite-but {
+    width: 340px;
+    margin-left: 26px;
+    
+  }
 }

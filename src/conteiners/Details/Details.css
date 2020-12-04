@@ -1,0 +1,93 @@
+.coin-det {
+  position: relative;
+  display: inline-block;
+  width: 324px;
+  height: 455px;
+  margin-left: 188px;
+  padding-left: 42px;
+  padding-right: 36px;
+  /* padding-bottom: 87px; */
+  background: #f3f3f3;
+  border: 1px solid #e2e2e2;
+  box-sizing: border-box;
+}
+
+/* styling icons led to changing margins */
+.coin-name-sec {
+  position: relative;
+  width: 246px;
+  border-bottom: 2px solid #ffffff;
+
+  margin-bottom: 15px;
+  padding-bottom: 9px;
+  /* padding-top: -100px; */
+}
+.ins {
+  display: inline;
+}
+.ico-coin {
+  display: inline;
+  width: 12.68px;
+  height: 16px;
+  margin-top: 46px;
+  margin-right: 10.32px;
+  fill: #f7931a;
+}
+
+.coin-name {
+  display: inline;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 26px;
+  /* or 26px */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.coin-prop-name {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 250%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #000000;
+}
+.coin-span-prop {
+  margin-left: 5px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.ico-plus {
+  width: 15.6px;
+  height: 15.6px;
+  margin-right: 9px;
+  fill: #4a90e2;
+}
+.add-fav {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 163.3%;
+  text-transform: uppercase;
+  color: #4a90e2;
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+  .coin-det {
+    margin-left: 61px;
+  }
+}
+
+@media (max-width: 375px) {
+  .coin-det {
+    margin-left: 29px;
+  }
+  .trade {
+    margin-left: 29px;
+  }
+}

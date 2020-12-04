@@ -1,6 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@font-face {
+    font-family: 'Gibson';
+    src: url('./fonts/gibson-regular.woff2') format('woff2'),
+         url('./fonts/gibson-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Open Sans', 'Gibson','Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -8,6 +19,6 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'Open Sans', 'Gibson', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }

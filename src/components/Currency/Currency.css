@@ -1,15 +1,13 @@
 .currency {
   position: relative;
-
-  margin-top: 0px;
+  /* margin-top: 0px; */
   margin-left: 43px;
-  margin-right: 45px;
+  /* margin-right: auto; */
   margin-bottom: 0px;
+  width: 559px;
   font-weight: 600;
   font-size: 13px;
   line-height: 332%;
-  border-top: 1px solid #e2e2e2;
-
   color: #000000;
 }
 
@@ -42,4 +40,8 @@
   font-style: normal; 
   font-weight: normal;
   text-align: right;
+}
+.row-cur{
+  width: 550px;
+  border-top: 1px solid #e2e2e2;
 }

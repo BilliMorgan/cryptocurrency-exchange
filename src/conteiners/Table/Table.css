@@ -1,41 +1,62 @@
 .table {
-  position: absolute;
+  /* position: absolute; */
+  width: 648px;
   height: 300px;
-  left: 188px;
-  right: 188px;
-  top: 443px;
-  /* #fff */
+  margin-left: 188px;
+  margin-top: 23px;
   background: #ffffff;
-  /* mercury */
   border: 1px solid #e2e2e2;
   box-sizing: border-box;
 }
 
 .title-row {
-  position: relative;
+  /* position: relative; */
+  width: 559px;
   margin-top: 33px;
   margin-left: 43px;
-  margin-right: 45px;
+  /* margin-right: auto; */
   padding-bottom: 17px;
-
+  font-family: Open Sans;
   font-style: normal;
   font-weight: bold;
   font-size: 12px;
-
   text-transform: uppercase;
-  /* border-bottom: 1px solid #e2e2e2; */
+
 }
 
 .name {
+  display: inline-block;
   margin-right: 122px;
+  width: 40px;
 }
 
 .total {
+  display: inline-block;
   margin-right: 81px;
+  width: 94px;
 }
 .market-cap {
+  display: inline-block;
   margin-right: 39px;
+  width: 83px;
 }
 
-/* .current-price {
-} */
+.current-price {
+  display: inline-block;
+  /* width: 101px; */
+}
+
+
+@media (min-width: 376px) and (max-width: 768px){
+  .table {
+    margin-left: 60px;
+  }
+}
+
+@media (max-width: 375px){
+  .table {
+    margin-left: 32px;
+    width: 312px;
+    overflow: scroll;
+  }
+}

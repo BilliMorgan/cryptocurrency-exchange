@@ -1,51 +1,72 @@
 .app {
-  position: relative;
+  display: block;
+  /* position: relative; */
+  margin-left: auto;
+  margin-right: auto;
   width: 1024px;
   height: 1346px;
   background: #ffffff;
 }
 .all-coins {
-  position: absolute;
+  /* position: relative; */
   /* width: 90px; */
   height: 23px;
-  left: 188px;
-  top: 397px;
-
-  /* font-family: Gibson; */
+  margin-left: 188px;
+  margin-top: 59px;
+  font-family: Open Sans;
+   /* font-family: Gibson; */
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 127.34%;
   /* identical to box height, or 23px */
-
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
   /* Black */
-
   color: #000000;
 }
-.select-coin {
-  position: absolute;
-  /* width: 254px; */
-  height: 20px;
-  left: 188px;
-  top: 802px;
 
-  /* font-family: Open Sans; */
+.select-coin {
+  /* position: relative; */
+  /* width: 260px; */
+  height: 20px;
+  margin-left: 188px;
+  margin-top: 59px;
+  font-family: Open Sans;
   font-style: italic;
   font-weight: normal;
   font-size: 15px;
   line-height: 132%;
   /* identical to box height, or 20px */
-
   /* Black */
-
   color: #000000;
 }
 
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+
+@media (min-width: 376px) and (max-width: 768px){
+  .app{
+    margin: 0 auto;
+    width: 790px;
+    height: 1346px;
   }
-} */
+   .all-coins {
+    margin-left: 60px;
+  }
+  .select-coin {
+    margin-left: 60px;
+  }
+}
+
+@media (max-width: 375px){
+  .app{
+    width: 392px;
+    height: 1637px;
+  }
+  .all-coins {
+    margin-left: 32px;
+  }
+  .select-coin {
+    margin-left: 59px;
+  }
+}

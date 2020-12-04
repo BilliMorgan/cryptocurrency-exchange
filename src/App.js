@@ -9,9 +9,8 @@ const App = (props) => {
   const context = useContext(Context);
 
   let content = (
-    <span className="select-coin">Select a coin to view more information</span>
+    <div className="select-coin">Select a coin to view more information</div>
   );
-  
   if (context.isCoin) {
     content = <CurSection />;
   }
@@ -19,7 +18,7 @@ const App = (props) => {
   return (
     <div className="app">
       <Favorites />
-      <span className="all-coins">all coins</span>
+      <div className="all-coins">all coins</div>
       <Table />
       {content}
     </div>

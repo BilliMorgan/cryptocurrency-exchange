@@ -14,13 +14,13 @@ const Currency = (props) => {
     <>
       {context.displayCurrency.map((cur) => (
         <div className="currency" key={cur.id}>
+          <div className="row-cur"></div>
           <span className="name-cur" onClick={(id) => coinHandler(cur.id)}>
             {cur.name}
           </span>
           <span className="total-cur">{cur.totalSupply}</span>
           <span className="market-cap-cur">{cur.marketCap}</span>
           <span className="current-price-cur">${cur.currentPrice}</span>
-          <div className="row-cur"></div>
         </div>
       ))}
     </>

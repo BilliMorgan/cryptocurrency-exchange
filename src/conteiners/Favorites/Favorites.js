@@ -12,17 +12,14 @@ const Favorites = () => {
   );
 
   let showFavoriteButtons = (
-    <div className="no-fav">No Favorite Coins Added</div>
+    <div className="no-fav">No Favourite Coins Added</div>
   );
-  
+
   if (context.favorite.length > 0) {
     showFavoriteButtons = (
       <div className="favorite-but">
         {favoriteAllCoins.map((favCoin) => (
-          <Button
-            key={favCoin.id}
-            favId={favCoin.id}
-          >
+          <Button key={favCoin.id} favId={favCoin.id}>
             {favCoin.name}
           </Button>
         ))}

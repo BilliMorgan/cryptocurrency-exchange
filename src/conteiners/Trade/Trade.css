@@ -1,9 +1,10 @@
-.coin-trade {
-  position: relative;
+.trade {
+  display: inline-block;
   width: 324px;
   height: 455px;
-  margin-left: 512px;
-  margin-top: 762px;
+  /* margin-left: 0px; */
+  /* margin-top: 0px;  */
+  padding-top: 0px;
   background: #ffffff;
   border: 1px solid #e2e2e2;
   box-sizing: border-box;
@@ -47,11 +48,11 @@
   text-transform: uppercase;
   /* Hover Blue */
   color: #397bca;
-  background: #FFFFFF;
+  background: #ffffff;
 }
-.sell-but:active{
+/* .sell-but:active{
   color: red
-}
+} */
 
 .trade-form {
   margin-left: 30px;
@@ -61,6 +62,16 @@
 } */
 .amount {
   margin-top: 33px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 155.25%;
+  /* or 20px */
+
+  text-transform: capitalize;
+
+  color: #000000;
 }
 .amount-inp {
   width: 255px;
@@ -102,11 +113,7 @@
   font-size: 12px;
   line-height: 155.25%;
   /* identical to box height, or 19px */
-
   text-transform: capitalize;
-
-  /* Complete */
-
   color: #00bc7c;
 }
 select {
@@ -121,6 +128,6 @@ select {
   color: #000000;
 }
 
-.cur-cap{
-   text-transform: uppercase;
+.cur-cap {
+  text-transform: uppercase;
 }
