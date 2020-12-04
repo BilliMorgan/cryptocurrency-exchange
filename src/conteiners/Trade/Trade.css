@@ -1,8 +1,9 @@
 .trade {
+  position: absolute;
   display: inline-block;
   width: 324px;
   height: 455px;
-  /* margin-left: 0px; */
+  margin-left: 512px;
   /* margin-top: 0px;  */
   padding-top: 0px;
   background: #ffffff;
@@ -130,4 +131,17 @@ select {
 
 .cur-cap {
   text-transform: uppercase;
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+  .trade {
+    margin-left: 385px;
+  }
+}
+
+@media (max-width: 375px) {
+  .trade {
+    margin-left: 29px;
+    margin-top: 454px;
+  }
 }

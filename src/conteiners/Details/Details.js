@@ -4,7 +4,7 @@ import { ReactComponent as Bitcoin } from "../../assets/Bitcoin.svg";
 import { ReactComponent as Plus } from "../../assets/plus-o-thick.svg";
 import "./Details.css";
 
-const Details = () => {
+const Details = (props) => {
   const context = useContext(Context);
 
   const currencyArray = context.displayCurrency;
@@ -14,6 +14,18 @@ const Details = () => {
   const addFavoriteHandler = (id) => {
     if (!context.favorite.includes(id)) {
       context.setFavorite((prevFav) => [...prevFav, id]);
+    }
+    //Add ending to the Market Cap Rank
+    const addEnding = (capRank) =>{
+      if(+capRank === 1){
+        return capRank + "ST"
+      } else if (+capRank === 2){
+        return capRank + "ND"
+      } else if (+capRank === 3){
+        return capRank + "RD"
+      } else if (+capRank >= 4){
+        return capRank + "TH"
+      }
     }
   };
   return (
@@ -63,7 +75,8 @@ const Details = () => {
           Market Cap Rank:
           <span className="coin-span-prop">
             {coinProperties.marketCapRank}
-            {/* //need to add function that add ending to this element */}
+           
+            {/* //need to add function addEnding() that add ending to this element */}
           </span>
         </div>
       </div>

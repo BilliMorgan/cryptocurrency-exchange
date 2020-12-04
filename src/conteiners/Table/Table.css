@@ -55,8 +55,8 @@
 
 @media (max-width: 375px){
   .table {
-    margin-left: 32px;
-    width: 312px;
+    margin-left: 29px;
+    width: 324px;
     overflow: scroll;
   }
 }

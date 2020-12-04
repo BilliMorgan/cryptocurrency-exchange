@@ -16,15 +16,15 @@ const Trade = () => {
   //   (prevCur) => prevCur.id !== context.coinName
   //   );
 
-  console.log(optionMenu)
+
 
   const handleChange = (event) => {
     setPrice(null);
-    console.log(event.target.value);
+
     const coin = event.target.value;
     const currencyArray = context.displayCurrency;
     setMessageSymbol(currencyArray.filter((c) => c.id === coin)[0].symbol);
-    // console.log(messageSymbol)
+
     setOptionMenu(coin);
   };
 
@@ -50,7 +50,7 @@ const Trade = () => {
       }
     }
   };
-
+//fetching currency exchenge rate
   useEffect(() => {
     fetch(
       "https://api.coingecko.com/api/v3/simple/price?ids=" +
@@ -79,15 +79,15 @@ const Trade = () => {
     if (isBuy === true) {
       setPrice(+amount * exchangeRate);
       event.preventDefault();
-      console.log(price);
+
     } else {
       setPrice(+amount * exchangeRate);
       event.preventDefault();
-      console.log(price);
+
     }
   };
 
-  console.log(exchangeRate);
+
   return (
     <div className="trade">
       <div className="buy-sell-buttons">

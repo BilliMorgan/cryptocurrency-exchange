@@ -1,5 +1,5 @@
 .coin-det {
-  position: relative;
+  position: absolute;
   display: inline-block;
   width: 324px;
   height: 455px;
@@ -69,6 +69,7 @@
   fill: #4a90e2;
 }
 .add-fav {
+  margin-top: 25px;
   font-style: normal;
   font-weight: bold;
   font-size: 12px;
