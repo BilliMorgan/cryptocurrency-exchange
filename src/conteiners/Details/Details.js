@@ -14,18 +14,6 @@ const Details = (props) => {
     if (!context.favorite.includes(id)) {
       context.setFavorite((prevFav) => [...prevFav, id]);
     }
-    //Add ending to the Market Cap Rank
-    // const addEnding = (capRank) =>{
-    //   if(+capRank === 1){
-    //     return capRank + "ST"
-    //   } else if (+capRank === 2){
-    //     return capRank + "ND"
-    //   } else if (+capRank === 3){
-    //     return capRank + "RD"
-    //   } else if (+capRank >= 4){
-    //     return capRank + "TH"
-    //   }
-    // }
   };
   return (
     <div className="coin-det">
@@ -74,8 +62,13 @@ const Details = (props) => {
           Market Cap Rank:
           <span className="coin-span-prop">
             {coinProperties.marketCapRank}
-           
-            {/* //need to add function addEnding() that add ending to this element */}
+            {coinProperties.marketCapRank === 1
+              ? " ST"
+              : coinProperties.marketCapRank === 2
+              ? " ND"
+              : coinProperties.marketCapRank === 3
+              ? " RD"
+              : " TH"}
           </span>
         </div>
       </div>
