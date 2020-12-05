@@ -4,43 +4,33 @@ import { Context } from "../../context/contex";
 import "./Trade.css";
 
 const Trade = () => {
-  // const [optionMenu, setOptionMenu] = useState("bitcoin");
+
   const [amount, setAmount] = useState("");
   const [exchangeRate, setExchangeRate] = useState("");
-  const [isBuy, setIsBuy] = useState(true);
+  const [isBuy, setIsBuy] = useState(null);
   const [price, setPrice] = useState(null);
   const [selectedCurrency, setSelectedCurrency] = useState(null);
 
   const context = useContext(Context);
 
-  // const [messageSymbol, setMessageSymbol] = useState("btc");
-  // const [listOpen, setListOpen] = useState(false)
 
 
-  //function for limiting drop down menu
-  // const currencyOptions = context.displayCurrency.filter(
-  //   (prevCur) => prevCur.id !== context.coinName
-  //   );
 
-  // const handleChange = (event) => {
-  //   setPrice(null);
-  //   const coin = event.target.value;
-  //   const currencyArray = context.displayCurrency;
-  //   setMessageSymbol(currencyArray.filter((c) => c.id === coin)[0].symbol);
-  //   setOptionMenu(coin);
-  // };
+  // function for limiting drop down menu
+  const currencyOptions = context.displayCurrency.filter(
+    (prevCur) => prevCur.id !== context.coinId
+    );
+
+
 
   const handleAmount = (event) => {
     setPrice(null);
     setAmount(event.target.value);
   };
 
- 
-
   const currencyExcengeSymb = context.listItemSymbol;
   const currencyExcengeName = context.coinName;
 
- 
   const extractRate = (rate) => {
     for (let obj in rate) {
       let innerRate = rate[obj];
@@ -68,19 +58,21 @@ const Trade = () => {
 
   const isBuyHandler = () => {
     setPrice(null);
-    setIsBuy(true);
+    setIsBuy("buy");
   };
   const isSellHandler = () => {
     setPrice(null);
-    setIsBuy(false);
+    setIsBuy("sell");
   };
 
   const onSubmitHandler = (event) => {
-    if (isBuy === true) {
+    if (isBuy === "buy") {
+      setPrice(+amount * exchangeRate);
+      event.preventDefault();
+    } else if (isBuy === "sell") {
       setPrice(+amount * exchangeRate);
       event.preventDefault();
     } else {
-      setPrice(+amount * exchangeRate);
       event.preventDefault();
     }
   };
@@ -88,29 +80,39 @@ const Trade = () => {
   const handleListOpen = () => {
     let open = context.listOpen;
     context.setListOpen(!open);
-    setSelectedCurrency(null)
+    setSelectedCurrency(null);
   };
 
-  const handleListItem = (symbol, name) =>{
-     context.setListItemSymbol(symbol);
-     setSelectedCurrency(name)
-      let open = context.listOpen;
-      context.setListOpen(!open);
-
-  }
-   
+  const handleListItem = (symbol, name) => {
+    context.setListItemSymbol(symbol);
+    setSelectedCurrency(name);
+    let open = context.listOpen;
+    context.setListOpen(!open);
+  };
 
   return (
     <div className="trade">
       <div className="buy-sell-buttons">
         <button
-          className={isBuy ? "active-but" : "not-active-but"}
+          className={
+            isBuy
+              ? isBuy === "buy"
+                ? "active-but"
+                : "not-active-but"
+              : "not-active-but"
+          }
           onClick={isBuyHandler}
         >
           BUY
         </button>
         <button
-          className={isBuy ? "not-active-but" : "active-but"}
+          className={
+            isBuy
+              ? isBuy === "sell"
+                ? "active-but"
+                : "not-active-but"
+              : "not-active-but"
+          }
           onClick={isSellHandler}
         >
           SELL
@@ -124,25 +126,17 @@ const Trade = () => {
 
         {context.listOpen && (
           <ul>
-            {context.displayCurrency.map((cur) => (
-              <li key={cur.id} onClick={(symbol, name) => handleListItem(cur.symbol, cur.name)}> {cur.name}</li>
-
-              // <ListItem key={cur.id} symbol={cur.symbol}>
-              //   {cur.name}
-              // </ListItem>
+            {currencyOptions.map((cur) => (
+              <li
+                key={cur.id}
+                onClick={(symbol, name) => handleListItem(cur.symbol, cur.name)}
+              >
+                {" "}
+                {cur.name}
+              </li>
             ))}
           </ul>
         )}
-        {/* {context.listOpen
-          ? context.displayCurrency.map((cur) => (
-
-              <ListItem key={cur.id} symbol={cur.symbol}>
-                {cur.name}
-              </ListItem>
-
-
-            ))
-          : null} */}
 
         <div className="line"></div>
         <div className="amount">
@@ -156,29 +150,31 @@ const Trade = () => {
         </div>
 
         <div className="line"></div>
+
         <input type="submit" value="Submit" className="submit" />
         <div className="sub-message">
-          {price ? (
-            isBuy ? (
-              <span>
-                You have purchased {amount}
-                <span className="cur-cap">
-                  {" "}
-                  {context.listItemSymbol}
-                </span> for {price}
-                <span className="cur-cap"> {context.coinDetails.symbol}</span>
-              </span>
-            ) : (
-              <span>
-                You have sold {amount}
-                <span className="cur-cap">
-                  {" "}
-                  {context.listItemSymbol}
-                </span> for {price}
-                <span className="cur-cap"> {context.coinDetails.symbol}</span>
-              </span>
-            )
-          ) : null}
+          {price
+            ? (isBuy && isBuy === "buy" && (
+                <span>
+                  You have purchased {amount}
+                  <span className="cur-cap">
+                    {" "}
+                    {context.listItemSymbol}
+                  </span> for {price}
+                  <span className="cur-cap"> {context.coinDetails.symbol}</span>
+                </span>
+              )) ||
+              (isBuy && isBuy === "sell" && (
+                <span>
+                  You have sold {amount}
+                  <span className="cur-cap">
+                    {" "}
+                    {context.listItemSymbol}
+                  </span> for {price}
+                  <span className="cur-cap"> {context.coinDetails.symbol}</span>
+                </span>
+              ))
+            : null}
         </div>
       </form>
     </div>
