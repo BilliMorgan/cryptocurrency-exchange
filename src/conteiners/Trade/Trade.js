@@ -3,7 +3,7 @@ import { Context } from "../../context/contex";
 import "./Trade.css";
 
 const Trade = () => {
-  const [optionMenu, setOptionMenu] = useState("Select Trade Currency");
+  const [optionMenu, setOptionMenu] = useState("bitcoin");
   const [amount, setAmount] = useState("");
   const context = useContext(Context);
   const [exchangeRate, setExchangeRate] = useState("");
