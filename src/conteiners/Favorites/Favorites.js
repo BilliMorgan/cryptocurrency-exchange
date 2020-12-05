@@ -20,7 +20,8 @@ const Favorites = () => {
       <div className="favorite-but">
         {favoriteAllCoins.map((favCoin) => (
           <Button key={favCoin.id} favId={favCoin.id}>
-            {favCoin.name}
+            <label className="big-screen">{favCoin.name}</label>
+            <label className="small-screen">{favCoin.symbol}</label>
           </Button>
         ))}
       </div>
