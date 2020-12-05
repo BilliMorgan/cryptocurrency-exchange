@@ -13,9 +13,6 @@ const Trade = () => {
 
   const context = useContext(Context);
 
-
-
-
   // function for limiting drop down menu
   const currencyOptions = context.displayCurrency.filter(
     (prevCur) => prevCur.id !== context.coinId
