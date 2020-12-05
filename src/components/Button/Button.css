@@ -20,16 +20,15 @@
   height: 67px;
   border: none;
   background: #397bca;
+  margin-top: 19px;
   margin-right: 14px;
   font-style: normal;
   font-weight: bold;
   font-size: 13px;
   line-height: 127.34%;
   /* identical to box height, or 17px */
-
   text-align: center;
   text-transform: uppercase;
-
   color: #ffffff;
 }
 

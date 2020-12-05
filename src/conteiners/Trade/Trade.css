@@ -74,8 +74,20 @@
 
   color: #000000;
 }
+input {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 13px;
+  line-height: 155.25%;
+  text-transform: capitalize;
+  color: #000000;
+}
 .amount-inp {
+  font-family: Open Sans;
   width: 255px;
+  height: 20px;
+  outline: none;
   border: none;
   font-style: normal;
   font-weight: 600;
@@ -83,6 +95,16 @@
   line-height: 155.25%;
   text-transform: capitalize;
   color: #000000;
+}
+::placeholder{
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 16px;
+  line-height: 155.25%;
+  text-transform: capitalize;
+  color: #000000;
+  opacity: 1;
 }
 .line {
   width: 255px;
