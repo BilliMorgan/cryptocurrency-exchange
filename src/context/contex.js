@@ -4,12 +4,20 @@ export const Context = React.createContext({
   isCoin: false,
   onShowCoinSection: () => {},
   displayCurrency: [],
-  coinName: "",
-  setCoinName: "",
+  coinId: "",
+  setCoinId: "",
   favorite: "",
   setFavorite: "",
   // coinProperties: []
-});
+  listOpen: false,
+  setListOpen: "",
+  listItemSymbol: "",
+  setListItemSymbol: "",
+  coinName: "",
+  setCoinName: "",
+  coinDetails: {},
+  setCoinDetails: ""
+})
 
 const ContextProvider = (props) => {
   const [showCoinSection, setShowCoinSection] = useState(false);
@@ -18,6 +26,12 @@ const ContextProvider = (props) => {
   const [favorite, setFavorite] = useState(
     JSON.parse(localStorage.getItem("favorites")) || []
   );
+   const [listOpen, setListOpen] = useState(false);
+   const [listItemSymbol, setListItemSymbol] = useState("");
+   const [coinName, setCoinName] = useState("");
+   const [coinDetails, setCoinDetails] = useState({});
+   
+
   // const [coinProperties, setCoinProperties] = useState([])
   const coinSectionHandler = () => {
     setShowCoinSection(true);
@@ -67,10 +81,18 @@ const ContextProvider = (props) => {
         onShowCoinSection: coinSectionHandler,
         isCoin: showCoinSection,
         displayCurrency: currencyList,
-        coinName: coinId,
-        setCoinName: setCoinId,
+        coinId: coinId,
+        setCoinId: setCoinId,
         favorite: favorite,
         setFavorite: setFavorite,
+        listOpen: listOpen,
+        setListOpen: setListOpen,
+        listItemSymbol: listItemSymbol,
+        setListItemSymbol: setListItemSymbol,
+        coinName: coinName,
+        setCoinName: setCoinName,
+        coinDetails: coinDetails,
+        setCoinDetails: setCoinDetails,
         // coinProperties: coinProperties
       }}
     >

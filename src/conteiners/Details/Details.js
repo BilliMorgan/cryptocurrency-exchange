@@ -6,9 +6,8 @@ import "./Details.css";
 
 const Details = (props) => {
   const context = useContext(Context);
-
   const currencyArray = context.displayCurrency;
-  const coin = context.coinName;
+  const coin = context.coinId;
   const coinProperties = currencyArray.filter((c) => c.id === coin)[0];
 
   const addFavoriteHandler = (id) => {
@@ -16,17 +15,17 @@ const Details = (props) => {
       context.setFavorite((prevFav) => [...prevFav, id]);
     }
     //Add ending to the Market Cap Rank
-    const addEnding = (capRank) =>{
-      if(+capRank === 1){
-        return capRank + "ST"
-      } else if (+capRank === 2){
-        return capRank + "ND"
-      } else if (+capRank === 3){
-        return capRank + "RD"
-      } else if (+capRank >= 4){
-        return capRank + "TH"
-      }
-    }
+    // const addEnding = (capRank) =>{
+    //   if(+capRank === 1){
+    //     return capRank + "ST"
+    //   } else if (+capRank === 2){
+    //     return capRank + "ND"
+    //   } else if (+capRank === 3){
+    //     return capRank + "RD"
+    //   } else if (+capRank >= 4){
+    //     return capRank + "TH"
+    //   }
+    // }
   };
   return (
     <div className="coin-det">

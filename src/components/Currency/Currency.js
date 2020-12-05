@@ -5,9 +5,11 @@ import "./Currency.css";
 const Currency = (props) => {
   const context = useContext(Context);
 
-  const coinHandler = (id) => {
-    context.setCoinName(id);
+  const coinHandler = (id, name, coinDet) => {
+    context.setCoinId(id);
+    context.setCoinName(name)
     context.onShowCoinSection();
+    context.setCoinDetails(coinDet)
   };
 
   return (
@@ -15,7 +17,7 @@ const Currency = (props) => {
       {context.displayCurrency.map((cur) => (
         <div className="currency" key={cur.id}>
           <div className="row-cur"></div>
-          <span className="name-cur" onClick={(id) => coinHandler(cur.id)}>
+          <span className="name-cur" onClick={(id, name, coinDet) => coinHandler(cur.id, cur.name, cur)}>
             {cur.name}
           </span>
           <span className="total-cur">{cur.totalSupply}</span>
