@@ -28,15 +28,15 @@ const Favorites = () => {
 
             <label className="ins-top">
               {favCoin.id === "bitcoin" ? (
-                <Bitcoin className="ico-top" viewbox="0 0 12 17" />
+                <Bitcoin className="ico-top"  />
               ) : favCoin.id === "ethereum" ? (
-                <Ethereum className="ico-top" viewbox="0 0 12 17" />
+                <Ethereum className="ico-top"  />
               ) : favCoin.id === "ripple" ? (
-                <Xrp className="ico-top" viewbox="0 0 12 17" />
+                <Xrp className="ico-top"  />
               ) : favCoin.id === "litecoin" ? (
-                <Litecoin className="ico-top" viewbox="0 0 12 17" />
+                <Litecoin className="ico-top"  />
               ) : favCoin.id === "tether" ? (
-                <Tron className="ico-top" viewbox="0 0 12 17" />
+                <Tron className="ico-top"  />
               ) : null}
             </label>
 

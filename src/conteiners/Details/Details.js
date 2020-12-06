@@ -24,15 +24,15 @@ const Details = (props) => {
       <div className="coin-name-sec">
         <div className="ins">
           {coinProperties.id === "bitcoin" ? (
-            <Bitcoin className="ico-coin" viewbox="0 0 12 17" />
+            <Bitcoin className="ico-coin"  />
           ) : coinProperties.id === "ethereum" ? (
-            <Ethereum className="ico-coin" viewbox="0 0 12 17" />
+            <Ethereum className="ico-coin"  />
           ) : coinProperties.id === "ripple" ? (
-            <Xrp className="ico-coin" viewbox="0 0 12 17" />
+            <Xrp className="ico-coin" />
           ) : coinProperties.id === "litecoin" ? (
-            <Litecoin className="ico-coin" viewbox="0 0 12 17" />
+            <Litecoin className="ico-coin"  />
           ) : coinProperties.id === "tether" ? (
-            <Tron className="ico-coin" viewbox="0 0 12 17" />
+            <Tron className="ico-coin"  />
           ) : null
           }
         </div>

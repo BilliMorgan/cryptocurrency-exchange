@@ -70,6 +70,7 @@ const Trade = () => {
       setPrice(+amount * exchangeRate);
       event.preventDefault();
     } else {
+
       event.preventDefault();
     }
   };
