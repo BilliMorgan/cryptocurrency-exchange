@@ -1,7 +1,11 @@
 import React, { useContext } from "react";
 import { Context } from "../../context/contex";
 import { ReactComponent as Bitcoin } from "../../assets/Bitcoin.svg";
+import { ReactComponent as Xrp } from "../../assets/xrp.svg";
+import { ReactComponent as Litecoin } from "../../assets/Litecoin-new.svg";
+import { ReactComponent as Ethereum } from "../../assets/ethereum.svg";
 import { ReactComponent as Plus } from "../../assets/plus-o-thick.svg";
+import { ReactComponent as Tron } from "../../assets/tron.svg";
 import "./Details.css";
 
 const Details = (props) => {
@@ -19,7 +23,18 @@ const Details = (props) => {
     <div className="coin-det">
       <div className="coin-name-sec">
         <div className="ins">
-          <Bitcoin className="ico-coin" />
+          {coinProperties.id === "bitcoin" ? (
+            <Bitcoin className="ico-coin" viewbox="0 0 12 17" />
+          ) : coinProperties.id === "ethereum" ? (
+            <Ethereum className="ico-coin" viewbox="0 0 12 17" />
+          ) : coinProperties.id === "ripple" ? (
+            <Xrp className="ico-coin" viewbox="0 0 12 17" />
+          ) : coinProperties.id === "litecoin" ? (
+            <Litecoin className="ico-coin" viewbox="0 0 12 17" />
+          ) : coinProperties.id === "tether" ? (
+            <Tron className="ico-coin" viewbox="0 0 12 17" />
+          ) : null
+          }
         </div>
 
         {/* need to implement dynamic ico change */}

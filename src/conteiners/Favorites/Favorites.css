@@ -5,13 +5,11 @@
   margin-top: 0;
 }
 .favorite-coins {
-  /* position: relative; */
+
   width: 213px;
   height: 37px;
   margin-left: 188px;
   padding-top: 109px;
-  /* margin-top: 109px; */
-  /* font-family: Gibson; */
   font-style: normal;
   font-weight: 600;
   font-size: 29px;
@@ -42,9 +40,23 @@
   margin-left: 189px;
   margin-top: 13px;
 }
-.small-creen{
-    display: none;
-  } 
+.small-screen {
+  display: none;
+  margin: 0;
+}
+
+.ico-top {
+  display: inline;
+  width: 12.68px;
+  height: 16px;
+  margin-right: 8px;
+  fill: #ffffff;
+  float: left;
+  margin-left: 36px;
+}
+.ins-top {
+  display: inline;
+}
 
 @media (min-width: 376px) and (max-width: 768px) {
   .fav-div {
@@ -61,9 +73,9 @@
     /* width: 648px; */
     margin-left: 61px;
   }
-  .small-creen{
+  .small-creen {
     display: none;
-  } 
+  }
 }
 
 @media (max-width: 375px) {
@@ -79,10 +91,19 @@
   .favorite-but {
     width: 340px;
     margin-left: 26px;
-    
   }
-  .big-screen{
+  .big-screen {
     display: none;
   }
+  .small-screen{
+    display: inline;
+  }
+  .ico-top {
 
+    width: 12.68px;
+    height: 16px;
+    margin-right: 0px;
+    margin-left: 8px;
+    float: left;
+  }
 }

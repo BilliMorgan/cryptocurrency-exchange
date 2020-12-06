@@ -14,7 +14,6 @@ const Button = (props) => {
   };
 
   const removeFavoriteHandler = (favId) => {
-    console.log(favId);
     context.setFavorite((prevFav) =>
       prevFav.filter((favorite) => favorite !== favId)
     );
