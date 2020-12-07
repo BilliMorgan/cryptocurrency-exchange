@@ -9,6 +9,7 @@ import { ReactComponent as Tron } from "../../assets/tron.svg";
 import "./Details.css";
 
 const Details = (props) => {
+  //need refactoring as I have coinDetails obj for selected coin
   const context = useContext(Context);
   const currencyArray = context.displayCurrency;
   const coin = context.coinId;
@@ -19,6 +20,7 @@ const Details = (props) => {
       context.setFavorite((prevFav) => [...prevFav, id]);
     }
   };
+
   return (
     <div className="coin-det">
       <div className="coin-name-sec">

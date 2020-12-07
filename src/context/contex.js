@@ -77,32 +77,32 @@ const ContextProvider = (props) => {
       });
   }, [setCurrencyList]);
 
-  // const currencyExcengeSymb = context.listItemSymbol;
-  // const currencyExcengeName = context.coinName;
 
   //fetching currency exchenge rate
+  const extractRate = (rate) => {
+    for (let obj in rate) {
+      let innerRate = rate[obj];
+      for (let innerObj in innerRate) {
+        return setExchangeRate(innerRate[innerObj]);
+      }
+    }
+  };
+ 
   useEffect(() => {
     fetch(
       "https://api.coingecko.com/api/v3/simple/price?ids=" +
-        coinName +
+        coinDetails.id +
         "&vs_currencies=" +
         listItemSymbol
     )
       .then((response) => response.json())
       .then((data) => {
-        const extractRate = (rate) => {
-          for (let obj in rate) {
-            let innerRate = rate[obj];
-            for (let innerObj in innerRate) {
-              return setExchangeRate(innerRate[innerObj]);
-            }
-          }
-        };
         extractRate(data);
         setPrice(null);
       })
+
       .catch((error) => console.log(error));
-  }, [coinName, listItemSymbol]);
+  }, [coinDetails, listItemSymbol]);
 
   return (
     <Context.Provider

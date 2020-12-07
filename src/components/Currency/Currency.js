@@ -9,10 +9,12 @@ const Currency = (props) => {
     context.setCoinId(id);
     context.setCoinName(name)
     context.setCoinDetails(coinDet)
+    
     context.setIsBuy(null)
     context.setSelectedCurrency(null)
     context.setPrice(null)
     context.setAmount("")
+    context.setExchangeRate("")
     context.onShowCoinSection();
 
   };

@@ -32,13 +32,10 @@ const Trade = () => {
   };
 
   const onSubmitHandler = (event) => {
-    if (context.isBuy === "buy") {
-      context.setPrice(+context.amount * context.exchangeRate);
+    if (context.isBuy === "buy" || context.isBuy === "sell") {
+      context.setPrice(+context.amount / context.exchangeRate);
       event.preventDefault();
-    } else if (context.isBuy === "sell") {
-      context.setPrice(+context.amount * context.exchangeRate);
-      event.preventDefault();
-    } else {
+      } else {
       event.preventDefault();
     }
   };
