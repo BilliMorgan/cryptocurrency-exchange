@@ -1,6 +1,51 @@
-# Getting Started with Create React App
+# React project with the minimum third part librares
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Requirements:
+
+React
+Redux or Context API (optional)
+
+## Description:
+
+Candidate is expected to implement the features provided in the mock up. The layout of the test is designed responsive and the expected implementation needs to be the same. Below is the guide to the implementation. All the functionalities are must haves except the one’s are marked as “optional”. 
+
+Coin Gecko API Documentation: https://www.coingecko.com/api/documentations/v3
+
+1. Create a table to list the coins.
+ - Use https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad for fetching market data.
+2. Create a section for displaying coin details for a selected coin
+- Create a button “Add to favorites” to add a coin as a favorite.
+- Use a method to persist favorite coins through a refresh
+3. Create the component for displaying favorite coins
+- Add hover effect to remove favorite coin (see mockup)
+4. Create a section to buy/sell cryptocurrency
+- Create dropdown to select a cryptocurrency
+- Create an input to take an amount of cryptocurrency to buy or sell
+- Add a submit button. When submitted, calculate the amount of cryptocurrency sold/bought for that pair. (ETH/BTC)
+5. Write an automated test for any one of the components. (optional)
+
+Please use this endpoint for fetching price information between two currencies. Check out the documentation for simple/price if needed.
+
+	Example API call URL for fetching ETH/BTC pricing.
+
+	https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=eth
+
+	Result: 
+	Example: You have purchased 1 BTC for 33.08880705 ETH
+
+
+
+## Dependency
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.2.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "react-test-renderer": "^17.0.1",
+    "web-vitals": "^0.2.4"
 
 ## Available Scripts
 
@@ -11,13 +56,9 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The project tested with Jest and Enzyme
 
 ### `npm run build`
 
@@ -38,33 +79,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
