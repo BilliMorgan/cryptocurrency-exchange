@@ -15,8 +15,18 @@ export const Context = React.createContext({
   coinName: "",
   setCoinName: "",
   coinDetails: {},
-  setCoinDetails: ""
-})
+  setCoinDetails: "",
+  amount: "",
+  setAmount: "",
+  exchangeRate: "",
+  setExchangeRate: "",
+  isBuy: null,
+  setIsBuy: "",
+  price: null,
+  setPrice: "",
+  selectedCurrency: null,
+  setSelectedCurrency: "",
+});
 
 const ContextProvider = (props) => {
   const [showCoinSection, setShowCoinSection] = useState(false);
@@ -25,15 +35,20 @@ const ContextProvider = (props) => {
   const [favorite, setFavorite] = useState(
     JSON.parse(localStorage.getItem("favorites")) || []
   );
-   const [listOpen, setListOpen] = useState(false);
-   const [listItemSymbol, setListItemSymbol] = useState("");
-   const [coinName, setCoinName] = useState("");
-   const [coinDetails, setCoinDetails] = useState({});
-   
+  const [listOpen, setListOpen] = useState(false);
+  const [listItemSymbol, setListItemSymbol] = useState("");
+  const [coinName, setCoinName] = useState("");
+  const [coinDetails, setCoinDetails] = useState({});
+  const [amount, setAmount] = useState("");
+  const [exchangeRate, setExchangeRate] = useState("");
+  const [isBuy, setIsBuy] = useState(null);
+  const [price, setPrice] = useState(null);
+  const [selectedCurrency, setSelectedCurrency] = useState(null);
+
   const coinSectionHandler = () => {
     setShowCoinSection(true);
   };
- 
+
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorite));
   }, [favorite]);
@@ -62,6 +77,33 @@ const ContextProvider = (props) => {
       });
   }, [setCurrencyList]);
 
+  // const currencyExcengeSymb = context.listItemSymbol;
+  // const currencyExcengeName = context.coinName;
+
+  //fetching currency exchenge rate
+  useEffect(() => {
+    fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=" +
+        coinName +
+        "&vs_currencies=" +
+        listItemSymbol
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const extractRate = (rate) => {
+          for (let obj in rate) {
+            let innerRate = rate[obj];
+            for (let innerObj in innerRate) {
+              return setExchangeRate(innerRate[innerObj]);
+            }
+          }
+        };
+        extractRate(data);
+        setPrice(null);
+      })
+      .catch((error) => console.log(error));
+  }, [coinName, listItemSymbol]);
+
   return (
     <Context.Provider
       value={{
@@ -80,6 +122,16 @@ const ContextProvider = (props) => {
         setCoinName: setCoinName,
         coinDetails: coinDetails,
         setCoinDetails: setCoinDetails,
+        amount: amount,
+        setAmount: setAmount,
+        exchangeRate: exchangeRate,
+        setExchangeRate: setExchangeRate,
+        isBuy: isBuy,
+        setIsBuy: setIsBuy,
+        price: price,
+        setPrice: setPrice,
+        selectedCurrency: selectedCurrency,
+        setSelectedCurrency: setSelectedCurrency,
       }}
     >
       {props.children}

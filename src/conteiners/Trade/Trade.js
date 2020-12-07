@@ -1,76 +1,44 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
 import { Context } from "../../context/contex";
 import "./Trade.css";
 
 const Trade = () => {
-
-  const [amount, setAmount] = useState("");
-  const [exchangeRate, setExchangeRate] = useState("");
-  const [isBuy, setIsBuy] = useState(null);
-  const [price, setPrice] = useState(null);
-  const [selectedCurrency, setSelectedCurrency] = useState(null);
+  // const [amount, setAmount] = useState("");
+  // const [exchangeRate, setExchangeRate] = useState("");
+  // const [isBuy, setIsBuy] = useState(null);
+  // const [price, setPrice] = useState(null);
+  // const [selectedCurrency, setSelectedCurrency] = useState(null);
 
   const context = useContext(Context);
 
   // function for limiting drop down menu
   const currencyOptions = context.displayCurrency.filter(
     (prevCur) => prevCur.id !== context.coinId
-    );
-
-
+  );
 
   const handleAmount = (event) => {
-    setPrice(null);
-    setAmount(event.target.value);
+    context.setPrice(null);
+    context.setAmount(event.target.value);
   };
-
-  const currencyExcengeSymb = context.listItemSymbol;
-  const currencyExcengeName = context.coinName;
-
-  const extractRate = (rate) => {
-    for (let obj in rate) {
-      let innerRate = rate[obj];
-      for (let innerObj in innerRate) {
-        return setExchangeRate(innerRate[innerObj]);
-      }
-    }
-  };
-
-  //fetching currency exchenge rate
-  useEffect(() => {
-    fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=" +
-        currencyExcengeName +
-        "&vs_currencies=" +
-        currencyExcengeSymb
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        extractRate(data);
-        setPrice(null);
-      })
-      .catch((error) => console.log(error));
-  }, [currencyExcengeName, currencyExcengeSymb]);
 
   const isBuyHandler = () => {
-    setPrice(null);
-    setIsBuy("buy");
+    context.setPrice(null);
+    context.setIsBuy("buy");
   };
   const isSellHandler = () => {
-    setPrice(null);
-    setIsBuy("sell");
+    context.setPrice(null);
+    context.setIsBuy("sell");
   };
 
   const onSubmitHandler = (event) => {
-    if (isBuy === "buy") {
-      setPrice(+amount * exchangeRate);
+    if (context.isBuy === "buy") {
+      context.setPrice(+context.amount * context.exchangeRate);
       event.preventDefault();
-    } else if (isBuy === "sell") {
-      setPrice(+amount * exchangeRate);
+    } else if (context.isBuy === "sell") {
+      context.setPrice(+context.amount * context.exchangeRate);
       event.preventDefault();
     } else {
-
       event.preventDefault();
     }
   };
@@ -78,12 +46,12 @@ const Trade = () => {
   const handleListOpen = () => {
     let open = context.listOpen;
     context.setListOpen(!open);
-    setSelectedCurrency(null);
+    context.setSelectedCurrency(null);
   };
 
   const handleListItem = (symbol, name) => {
     context.setListItemSymbol(symbol);
-    setSelectedCurrency(name);
+    context.setSelectedCurrency(name);
     let open = context.listOpen;
     context.setListOpen(!open);
   };
@@ -93,8 +61,8 @@ const Trade = () => {
       <div className="buy-sell-buttons">
         <button
           className={
-            isBuy
-              ? isBuy === "buy"
+            context.isBuy
+              ? context.isBuy === "buy"
                 ? "active-but"
                 : "not-active-but"
               : "not-active-but"
@@ -105,8 +73,8 @@ const Trade = () => {
         </button>
         <button
           className={
-            isBuy
-              ? isBuy === "sell"
+            context.isBuy
+              ? context.isBuy === "sell"
                 ? "active-but"
                 : "not-active-but"
               : "not-active-but"
@@ -119,7 +87,7 @@ const Trade = () => {
 
       <form className="trade-form" onSubmit={onSubmitHandler}>
         <div on onClick={handleListOpen}>
-          {selectedCurrency || "Select Trade Currency"}
+          {context.selectedCurrency || "Select Trade Currency"}
         </div>
 
         {context.listOpen && (
@@ -141,34 +109,32 @@ const Trade = () => {
           <input
             className="amount-inp"
             type="number"
-            value={amount}
+            value={context.amount}
             onChange={handleAmount}
             placeholder="Amount"
           ></input>
         </div>
-
         <div className="line"></div>
-
         <input type="submit" value="Submit" className="submit" />
         <div className="sub-message">
-          {price
-            ? (isBuy && isBuy === "buy" && (
+          {context.price
+            ? (context.isBuy && context.isBuy === "buy" && (
                 <span>
-                  You have purchased {amount}
+                  You have purchased {context.amount}
                   <span className="cur-cap">
                     {" "}
                     {context.listItemSymbol}
-                  </span> for {price}
+                  </span> for {context.price}
                   <span className="cur-cap"> {context.coinDetails.symbol}</span>
                 </span>
               )) ||
-              (isBuy && isBuy === "sell" && (
+              (context.isBuy && context.isBuy === "sell" && (
                 <span>
-                  You have sold {amount}
+                  You have sold {context.amount}
                   <span className="cur-cap">
                     {" "}
                     {context.listItemSymbol}
-                  </span> for {price}
+                  </span> for {context.price}
                   <span className="cur-cap"> {context.coinDetails.symbol}</span>
                 </span>
               ))

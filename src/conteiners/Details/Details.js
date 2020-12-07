@@ -37,7 +37,7 @@ const Details = (props) => {
           }
         </div>
 
-        {/* need to implement dynamic ico change */}
+
         <div className="coin-name">
           {coinProperties.name}(<span>{coinProperties.symbol}</span>)
         </div>

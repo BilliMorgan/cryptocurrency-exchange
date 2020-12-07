@@ -8,8 +8,13 @@ const Currency = (props) => {
   const coinHandler = (id, name, coinDet) => {
     context.setCoinId(id);
     context.setCoinName(name)
-    context.onShowCoinSection();
     context.setCoinDetails(coinDet)
+    context.setIsBuy(null)
+    context.setSelectedCurrency(null)
+    context.setPrice(null)
+    context.setAmount("")
+    context.onShowCoinSection();
+
   };
 
   return (
