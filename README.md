@@ -1,4 +1,4 @@
-# React project with the minimum third part librares
+# React project with the minimum third party libraries
 
 ## Requirements:
 
@@ -35,7 +35,8 @@ Please use this endpoint for fetching price information between two currencies. 
 
 
 
-## Dependency
+## Dependencies
+
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
